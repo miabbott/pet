@@ -1,7 +1,7 @@
 name: Build
 
 env:
-  QUAY_BASE: quay.io/jlebon/pet
+  QUAY_BASE: quay.io/miabbott/pet
   TOOLBOX: registry.fedoraproject.org/fedora-toolbox
 
 on:
@@ -47,8 +47,8 @@ jobs:
           # doesn't stay active.  Do not enable branch protection for main;
           # it'll break this.
           set -xeuo pipefail
-          git config user.name 'Jonathan Lebon'
-          git config user.email jonathan@jlebon.com
+          git config user.name 'Micah Abbott'
+          git config user.email miabbott@redhat.com
           sed -i "s/updated-.*-green/updated-$(date +%Y--%m--%d)-green/" README.md
           sed -i "s/fedora-toolbox:.*/fedora-toolbox:${stable}/" Containerfile
           git add README.md Containerfile
