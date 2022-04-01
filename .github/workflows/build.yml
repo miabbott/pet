@@ -29,18 +29,12 @@ jobs:
           ${{ secrets.QUAY_AUTH }}
           EOF
           stable=$(curl -L https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/builds.json | jq -r .builds[0].id | cut -f1 -d.)
-          rawhide=$(curl -L https://builds.coreos.fedoraproject.org/prod/streams/rawhide/builds/builds.json | jq -r .builds[0].id | cut -f1 -d.)
-          for n in $(seq $stable $rawhide); do
-            podman build --from $TOOLBOX:$n -t "${{ env.QUAY_BASE }}:f$n" .
-            podman push "${{ env.QUAY_BASE }}:f$n"
-            if [[ $n == $stable ]]; then
-              podman tag "${{ env.QUAY_BASE }}:f$n" "${{ env.QUAY_BASE }}:latest"
-              podman push "${{ env.QUAY_BASE }}:latest"
-            fi
-          done
+          podman build --from $TOOLBOX:$stable -t "${{ env.QUAY_BASE }}:f$stable" .
+          podman push "${{ env.QUAY_BASE }}:f$stable"
+          podman tag "${{ env.QUAY_BASE }}:f$stable" "${{ env.QUAY_BASE }}:latest"
+          podman push "${{ env.QUAY_BASE }}:latest"
           rm ~/.docker/config.json
           echo "stable=${stable}" >> $GITHUB_ENV
-          echo "rawhide=${rawhide}" >> $GITHUB_ENV
       - name: Update README and Containerfile
         run: |
           # This is load-bearing: GitHub will disable the job if the repo
