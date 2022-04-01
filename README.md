@@ -11,7 +11,7 @@ it every week.
 
 To use:
 
-```
+```bash
 toolbox create --image quay.io/miabbott/pet
 toolbox enter pet
 ```
@@ -20,7 +20,7 @@ For Red Hat engineers, once connected to the VPN, you'll
 want to run `rhsetup` to install certs and `rhpkg`.
 
 This repository runs a weekly
-[GitHub Actions job](https://github.com/jlebon/pet/actions/workflows/build.yml)
+[GitHub Actions job](https://github.com/miabbott/pet/actions/workflows/build.yml)
 to update a
 [container image](https://quay.io/repository/miabbott/pet)
 hosted on [Quay.io](https://quay.io/) (that workflow is

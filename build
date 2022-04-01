@@ -1,6 +1,36 @@
 #!/bin/bash
 set -euo pipefail
 
+# pull in additional repo files
+## Azure CLI
+rpm --import https://packages.microsoft.com/keys/microsoft.asc
+echo -e "[azure-cli]
+name=Azure CLI
+baseurl=https://packages.microsoft.com/yumrepos/azure-cli
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc" | tee /etc/yum.repos.d/azure-cli.repo
+
+## Google SDK
+tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
+[google-cloud-cli]
+name=Google Cloud CLI
+baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el8-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
+       https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+EOM
+
+## VSCode
+echo -e "[code]
+name=Visual Studio Code
+baseurl=https://packages.microsoft.com/yumrepos/vscode
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc" | tee /etc/yum.repos.d/vscode.repo
+
 # install packages
 grep -v '^#' deps.txt | xargs dnf install -y
 grep -v '^#' builddeps.txt | xargs dnf builddep -y
@@ -12,23 +42,11 @@ grep -v '^#' builddeps.txt | xargs dnf builddep -y
  ./build.sh configure_yum_repos
  ./build.sh install_rpms)
 
-# rpm-ostree test deps
-(git clone https://github.com/coreos/rpm-ostree
- cd rpm-ostree
- ci/install-test-deps.sh)
 
 # everything in the FCOS buildroot image
 (git clone https://github.com/coreos/fedora-coreos-config
  cd fedora-coreos-config
  ci/buildroot/install-buildroot.sh)
-
-# universal tags
-(git clone https://github.com/universal-ctags/ctags
- cd ctags
- ./autogen.sh
- ./configure
- make -j8
- make install)
 
 # we want the host srv
 rmdir /srv && ln -sT /run/host/srv /srv
