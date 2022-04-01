@@ -42,6 +42,11 @@ grep -v '^#' builddeps.txt | xargs dnf builddep -y
  ./build.sh configure_yum_repos
  ./build.sh install_rpms)
 
+# install oc
+(curl -LO https://mirror.openshift.com/pub/openshift-v4/amd64/clients/ocp/latest/openshift-client-linux.tar.gz
+ tar -xf openshift-client-linux.tar.gz
+ cp oc /usr/local/bin
+ rm oc kubectl README.md openshift-client-linux.tar.gz)
 
 # everything in the FCOS buildroot image
 (git clone https://github.com/coreos/fedora-coreos-config
