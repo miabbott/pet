@@ -61,3 +61,10 @@ rmdir /srv && ln -sT /run/host/srv /srv
 
 # install rhsetup
 cp rhsetup /usr/bin
+
+# install host-runner shim
+cp host-runner /usr/local/bin/
+
+# setup host-runner aliases
+ln -s /usr/local/bin/host-runner /usr/local/bin/podman
+ln -s /usr/local/bin/host-runner /usr/local/bin/rpm-ostree
