@@ -21,3 +21,6 @@ python2.7
 
 # tmt for testing
 tmt
+
+# pinentry for gpg passwords
+pinentry
