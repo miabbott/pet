@@ -24,3 +24,6 @@ tmt
 
 # pinentry for gpg passwords
 pinentry
+
+# restic for managing backups
+restic
