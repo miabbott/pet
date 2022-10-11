@@ -27,3 +27,7 @@ pinentry
 
 # restic for managing backups
 restic
+
+ShellCheck
+bind-utils
+doctl
