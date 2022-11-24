@@ -56,6 +56,18 @@ grep -v '^#' builddeps.txt | xargs dnf builddep -y
 # cleanup dnf cache
 dnf clean all
 
+# install yq binary
+# https://release-monitoring.org/project/303696/
+set -x
+yq_release=$(curl -s "https://release-monitoring.org/api/v2/versions/?project_id=303696" | jq -r '.stable_versions[0]')
+curl -LO "https://github.com/mikefarah/yq/releases/download/v${yq_release}/yq_linux_amd64.tar.gz"
+tar -xzf yq_linux_amd64.tar.gz
+cp ./yq_linux_amd64 /usr/local/bin/yq
+set +x
+
+# install bpytop
+pip3 install bpytop --upgrade
+
 # we want the host srv
 rmdir /srv && ln -sT /run/host/srv /srv
 
