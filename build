@@ -35,13 +35,6 @@ gpgkey=https://packages.microsoft.com/keys/microsoft.asc" | tee /etc/yum.repos.d
 grep -v '^#' deps.txt | xargs dnf install -y
 grep -v '^#' builddeps.txt | xargs dnf builddep -y
 
-# cosa
-(git clone https://github.com/coreos/coreos-assembler
- cd coreos-assembler
- sed -i "s/frozendeps=.*/frozendeps=/" build.sh
- ./build.sh configure_yum_repos
- ./build.sh install_rpms)
-
 # install oc
 (curl -LO https://mirror.openshift.com/pub/openshift-v4/amd64/clients/ocp/latest/openshift-client-linux.tar.gz
  tar -xf openshift-client-linux.tar.gz
@@ -70,6 +63,9 @@ pip3 install bpytop --upgrade
 
 # we want the host srv
 rmdir /srv && ln -sT /run/host/srv /srv
+
+# install bpytop
+pip install bpytop --upgrade
 
 # install rhsetup
 cp rhsetup /usr/bin
