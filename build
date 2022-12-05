@@ -64,9 +64,6 @@ pip3 install bpytop --upgrade
 # we want the host srv
 rmdir /srv && ln -sT /run/host/srv /srv
 
-# install bpytop
-pip install bpytop --upgrade
-
 # install rhsetup
 cp rhsetup /usr/bin
 
