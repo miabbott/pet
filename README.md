@@ -2,7 +2,7 @@
 
 (Shamelessly forked from <https://github.com/jlebon/pet>)
 
-[![quay.io repository](https://img.shields.io/badge/updated-2022--12--11-green)](https://quay.io/repository/miabbott/pet)
+[![quay.io repository](https://img.shields.io/badge/updated-2022--12--18-green)](https://quay.io/repository/miabbott/pet)
 
 This is my [Toolbx](https://containertoolbx.org/) container
 that I use everyday for hacking on
