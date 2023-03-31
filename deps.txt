@@ -31,3 +31,4 @@ restic
 ShellCheck
 bind-utils
 doctl
+ripgrep
