@@ -28,7 +28,14 @@ pinentry
 # restic for managing backups
 restic
 
+# ShellCheck for checking bash scripts
 ShellCheck
+
+# I forget why
 bind-utils
+
+# Digital Ocean CLI
 doctl
+
+# better grep
 ripgrep
