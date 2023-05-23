@@ -1,6 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
+source /etc/os-release
 # This tiny script sets up bits of the pet container that require the VPN.
 
 cd /etc/pki/ca-trust/source/anchors
@@ -9,4 +10,6 @@ sudo update-ca-trust extract
 
 cd /etc/yum.repos.d/
 sudo curl -L -O https://download.devel.redhat.com/rel-eng/RCMTOOLS/rcm-tools-fedora.repo
-sudo dnf install -y rhpkg
+sudo curl -L -O "https://copr.fedorainfracloud.org/coprs/james/centpkg/repo/fedora-${VERSION_ID}/james-centpkg-fedora-${VERSION_ID}.repo"
+sudo dnf install -y centpkg rhel-packager rhpkg
+
