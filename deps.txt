@@ -1,5 +1,6 @@
 vim-enhanced
 tmux
+jq
 
 # provides /usr/bin/errno
 moreutils
