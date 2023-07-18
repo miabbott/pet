@@ -36,18 +36,12 @@ curl -L -o /etc/yum.repos.d/hashicorp.repo https://rpm.releases.hashicorp.com/fe
 
 # install packages
 grep -v '^#' deps.txt | xargs dnf install -y
-grep -v '^#' builddeps.txt | xargs dnf builddep -y
 
 # install oc
 (curl -LO https://mirror.openshift.com/pub/openshift-v4/amd64/clients/ocp/latest/openshift-client-linux.tar.gz
  tar -xf openshift-client-linux.tar.gz
  cp oc /usr/local/bin
  rm oc kubectl README.md openshift-client-linux.tar.gz)
-
-# everything in the FCOS buildroot image
-(git clone https://github.com/coreos/fedora-coreos-config
- cd fedora-coreos-config
- ci/buildroot/install-buildroot.sh)
 
 # cleanup dnf cache
 dnf clean all
