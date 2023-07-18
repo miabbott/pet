@@ -1,6 +1,10 @@
+# must haves
 vim-enhanced
 tmux
+
+# previously from builddeps.txt
 jq
+python3-pip
 
 # provides /usr/bin/errno
 moreutils
