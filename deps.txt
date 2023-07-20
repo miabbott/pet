@@ -50,3 +50,6 @@ terraform
 
 # LDAP searching
 openldap-clients
+
+# Rust
+cargo
