@@ -4,5 +4,5 @@ COPY . /pet
 RUN cd /pet && \
     ./build && \
     rm -rf /pet /var/cache/dnf && \
-    rm -rf /etc/yum.repos.d/{azure-cli,google-cloud-sdk,vscode}.repo
+    rm -rf /etc/yum.repos.d/{azure-cli,fedora-modular,fedora-updates-modular,fedora-updates-testing-modular,google-cloud-sdk,vscode}.repo
 CMD ["/bin/bash"]
