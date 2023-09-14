@@ -56,3 +56,6 @@ cargo
 
 # Docs
 linkchecker rubygem-asciidoctor
+
+# Virt
+virt-manager
