@@ -59,3 +59,6 @@ linkchecker rubygem-asciidoctor
 
 # Virt
 virt-manager
+
+# Ansible
+ansible
