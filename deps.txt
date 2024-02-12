@@ -62,3 +62,6 @@ virt-manager
 
 # Ansible
 ansible
+
+# Kerberos
+krb5-workstation
