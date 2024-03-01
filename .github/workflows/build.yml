@@ -39,9 +39,9 @@ jobs:
           cat > ~/.docker/config.json <<EOF
           ${{ secrets.QUAY_AUTH }}
           EOF
-          podman push "${{ env.QUAY_BASE }}:f$stable"
+          podman push --compression-format=zstd:chunked "${{ env.QUAY_BASE }}:f$stable"
           podman tag "${{ env.QUAY_BASE }}:f$stable" "${{ env.QUAY_BASE }}:latest"
-          podman push "${{ env.QUAY_BASE }}:latest"
+          podman push --compression-format=zstd:chunked  "${{ env.QUAY_BASE }}:latest"
           rm ~/.docker/config.json
       - name: Update README and Containerfile
         run: |
