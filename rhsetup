@@ -12,5 +12,5 @@ sudo update-ca-trust extract
 cd /etc/yum.repos.d/
 sudo curl -L -O https://download.devel.redhat.com/rel-eng/RCMTOOLS/rcm-tools-fedora.repo
 sudo curl -L -O "https://copr.fedorainfracloud.org/coprs/james/centpkg/repo/fedora-${VERSION_ID}/james-centpkg-fedora-${VERSION_ID}.repo"
-sudo dnf install -y centpkg rhel-packager rhpkg
+sudo dnf install -y rhel-packager
 
