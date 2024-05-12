@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora-toolbox:39
+FROM registry.fedoraproject.org/fedora-toolbox:40
 LABEL author="Micah Abbott <miabbott@redhat.com>"
 COPY . /pet
 RUN cd /pet && \
