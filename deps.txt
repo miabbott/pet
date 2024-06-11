@@ -65,3 +65,6 @@ ansible
 
 # Kerberos
 krb5-workstation
+
+# git LFS
+git-lfs
