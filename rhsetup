@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -xeuo pipefail
 
 source /etc/os-release
 # This tiny script sets up bits of the pet container that require the VPN.
@@ -14,3 +14,9 @@ sudo curl -L -O https://download.devel.redhat.com/rel-eng/RCMTOOLS/rcm-tools-fed
 sudo curl -L -O "https://copr.fedorainfracloud.org/coprs/james/centpkg/repo/fedora-${VERSION_ID}/james-centpkg-fedora-${VERSION_ID}.repo"
 sudo dnf install -y rhel-packager
 
+# install rh-pre-commit
+cd $(mktemp -d)
+git clone https://gitlab.corp.redhat.com/infosec-public/developer-workbench/tools.git
+cd tools/rh-pre-commit
+python3 -m pip install --upgrade --user pip
+make install
