@@ -21,9 +21,6 @@ google-cloud-cli
 # VSCode
 code
 
-# py2 for RHT ET tooling :cry:
-python2.7
-
 # tmt for testing
 tmt
 
