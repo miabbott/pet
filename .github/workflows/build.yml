@@ -28,6 +28,10 @@ jobs:
           set -xeuo pipefail
           stable=$(curl -L https://builds.coreos.fedoraproject.org/prod/streams/stable/builds/builds.json | jq -r .builds[0].id | cut -f1 -d.)
           echo "stable=${stable}" >> $GITHUB_ENV
+      - name: Get podman info
+        run: |
+          set -xeou pipefail
+          podman info
       - name: Build container image
         run: |
           set -xeuo pipefail
