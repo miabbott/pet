@@ -16,7 +16,7 @@ sudo dnf install -y rhel-packager
 
 # install rh-pre-commit
 cd $(mktemp -d)
-git clone https://gitlab.corp.redhat.com/infosec-public/developer-workbench/tools.git
+git clone https://gitlab.cee.redhat.com/infosec-public/developer-workbench/tools.git
 cd tools/rh-pre-commit
 python3 -m pip install --upgrade --user pip
 make install
