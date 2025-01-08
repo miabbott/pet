@@ -70,3 +70,6 @@ cp host-runner /usr/local/bin/
 # setup host-runner aliases
 ln -s /usr/local/bin/host-runner /usr/local/bin/podman
 ln -s /usr/local/bin/host-runner /usr/local/bin/rpm-ostree
+
+# install heif-convert
+pip3 install --upgrade heif-convert
