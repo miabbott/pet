@@ -65,3 +65,6 @@ krb5-workstation
 
 # git LFS
 git-lfs
+
+# ImageMagick
+ImageMagick
