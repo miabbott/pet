@@ -40,6 +40,7 @@ jobs:
           EOF
           # disable zstd:chunked until https://github.com/containers/podman/issues/24885 is addressed
           # podman push --compression-format=zstd:chunked "${{ env.QUAY_BASE }}:latest"
+          podman push "${{ env.QUAY_BASE }}:latest"
           rm ~/.docker/config.json
       - name: Update README and Containerfile
         run: |
