@@ -1,6 +1,6 @@
 # Use the RHEL toolbox images which has the certs needed
 # See also: https://github.com/containers/toolbox/issues/1661
-FROM  quay.io/rhel-devel-tools/rhel-developer-toolbox:latest
+FROM quay.io/rhel-devel-tools/rhel-developer-toolbox:latest
 LABEL author="Micah Abbott <miabbott@redhat.com>"
 COPY . /pet
 RUN cd /pet && \
