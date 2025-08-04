@@ -72,3 +72,6 @@ ImageMagick
 # clang + python-devel for llamma.cpp
 clang
 python3-devel
+
+# claude
+nodejs-npm
