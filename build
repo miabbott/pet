@@ -18,6 +18,8 @@ gpgcheck=1
 gpgkey=https://packages.microsoft.com/keys/microsoft.asc" | tee /etc/yum.repos.d/azure-cli.repo
 
 ## Google SDK
+rpm --import https://packages.cloud.google.com/yum/doc/yum-key.gpg
+rpm --import https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 tee -a /etc/yum.repos.d/google-cloud-sdk.repo << EOM
 [google-cloud-cli]
 name=Google Cloud CLI
