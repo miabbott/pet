@@ -51,6 +51,9 @@ grep -v '^#' deps.txt | xargs dnf install -y
  cp oc /usr/local/bin
  rm oc kubectl README.md openshift-client-linux.tar.gz)
 
+# enable Coprs
+dnf copr enable dejan/lazygit
+
 # cleanup dnf cache
 dnf clean all
 

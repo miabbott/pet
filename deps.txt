@@ -81,3 +81,7 @@ libheif
 libheif-freeworld
 libheif-tools
 ImageMagick-heic
+
+# lazygit
+# requires copr
+lazygit
