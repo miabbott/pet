@@ -75,3 +75,9 @@ python3-devel
 
 # claude
 nodejs-npm
+
+# HEIC convert
+libheif
+libheif-freeworld
+libheif-tools
+ImageMagick-heic
