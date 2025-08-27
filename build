@@ -46,7 +46,7 @@ curl -L -o /etc/yum.repos.d/hashicorp.repo https://rpm.releases.hashicorp.com/fe
 tee -a /etc/yum.repos.d/lazygit-copr.repo << EOM
 [copr:copr.fedorainfracloud.org:dejan:lazygit]
 name=Copr repo for lazygit owned by dejan
-baseurl=https://download.copr.fedorainfracloud.org/results/dejan/lazygit/fedora-$releasever-$basearch/
+baseurl=https://download.copr.fedorainfracloud.org/results/dejan/lazygit/fedora-$(rpm -E %fedora)-x86_64/
 type=rpm-md
 skip_if_unavailable=True
 gpgcheck=1
