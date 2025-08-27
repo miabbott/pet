@@ -42,6 +42,20 @@ gpgkey=https://packages.microsoft.com/keys/microsoft.asc" | tee /etc/yum.repos.d
 ## Terraform
 curl -L -o /etc/yum.repos.d/hashicorp.repo https://rpm.releases.hashicorp.com/fedora/hashicorp.repo
 
+## lazygit Copr
+tee -a /etc/yum.repos.d/lazygit-copr.repo << EOM
+[copr:copr.fedorainfracloud.org:dejan:lazygit]
+name=Copr repo for lazygit owned by dejan
+baseurl=https://download.copr.fedorainfracloud.org/results/dejan/lazygit/fedora-$releasever-$basearch/
+type=rpm-md
+skip_if_unavailable=True
+gpgcheck=1
+gpgkey=https://download.copr.fedorainfracloud.org/results/dejan/lazygit/pubkey.gpg
+repo_gpgcheck=0
+enabled=1
+enabled_metadata=1
+EOM
+
 # install packages
 grep -v '^#' deps.txt | xargs dnf install -y
 
@@ -50,9 +64,6 @@ grep -v '^#' deps.txt | xargs dnf install -y
  tar -xf openshift-client-linux.tar.gz
  cp oc /usr/local/bin
  rm oc kubectl README.md openshift-client-linux.tar.gz)
-
-# enable Coprs
-dnf copr enable dejan/lazygit
 
 # cleanup dnf cache
 dnf clean all
