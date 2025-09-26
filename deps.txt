@@ -85,3 +85,7 @@ ImageMagick-heic
 # lazygit
 # requires copr
 lazygit
+
+# building sysexts
+erosfs-utils
+just
