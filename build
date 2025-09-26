@@ -95,3 +95,6 @@ ln -s /usr/local/bin/host-runner /usr/local/bin/rpm-ostree
 
 # install heif-convert
 pip3 install --upgrade heif-convert
+
+# remove podman
+dnf -y remove podman podman-remote && dnf clean all
