@@ -89,3 +89,9 @@ lazygit
 # building sysexts
 erofs-utils
 just
+
+# GH client
+gh
+
+# ostree
+ostre
