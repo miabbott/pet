@@ -145,3 +145,9 @@ zip
 mesa-dri-drivers
 mesa-vulkan-drivers
 vulkan
+
+# GH client
+gh
+
+# ostree
+ostree
