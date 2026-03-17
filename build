@@ -98,3 +98,6 @@ pip3 install --upgrade heif-convert
 
 # remove podman
 dnf -y remove podman podman-remote && dnf clean all
+
+# opencode
+curl -fsSL https://opencode.ai/install | bash
