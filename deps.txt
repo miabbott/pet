@@ -42,9 +42,6 @@ doctl
 # better grep
 ripgrep
 
-# Terraform by Hashicorp
-terraform
-
 # LDAP searching
 openldap-clients
 
