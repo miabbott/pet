@@ -23,6 +23,8 @@ jobs:
         uses: jlumbroso/free-disk-space@v1.3.0
       - name: Check out repository
         uses: actions/checkout@v6
+      - name: Install Podman 5.x
+        uses: redhat-actions/podman-install@main
       - name: Get podman info
         run: |
           set -xeou pipefail
@@ -50,9 +52,7 @@ jobs:
           cat > ~/.docker/config.json <<EOF
           ${{ secrets.QUAY_AUTH }}
           EOF
-          # disable zstd:chunked until https://github.com/containers/podman/issues/24885 is addressed
-          # podman push --compression-format=zstd:chunked "${{ env.QUAY_BASE }}:latest"
-          podman push "${{ env.QUAY_BASE }}:latest"
+          podman push --compression-format=zstd:chunked "${{ env.QUAY_BASE }}:latest"
           rm ~/.docker/config.json
       - name: Update README and Containerfile
         run: |
