@@ -30,7 +30,19 @@ jobs:
       - name: Build container image
         run: |
           set -xeuo pipefail
-          podman build --from $TOOLBOX:latest -t "${{ env.QUAY_BASE }}:latest" .
+          # Pull base image so we can pass its config to chunkah
+          podman pull $TOOLBOX:latest
+          # --skip-unused-stages=false is required for chunkah's multi-stage build
+          # Do not use --jobs; parallel stage building is incompatible with this pattern
+          # -v and --security-opt are required for buildah < 1.44 to make the
+          # RUN --mount=type=bind write the OCI archive into the build context
+          podman build \
+            --skip-unused-stages=false \
+            --build-arg "CHUNKAH_CONFIG_STR=$(podman inspect $TOOLBOX:latest)" \
+            --from $TOOLBOX:latest \
+            -v "$(pwd):/run/src" \
+            --security-opt=label=disable \
+            -t "${{ env.QUAY_BASE }}:latest" .
       - name: Push container image
         run: |
           set -xeuo pipefail
