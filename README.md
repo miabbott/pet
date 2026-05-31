@@ -2,7 +2,7 @@
 
 (Shamelessly forked from <https://github.com/jlebon/pet>)
 
-[![quay.io repository](https://img.shields.io/badge/updated-2026--05--26-green)](https://quay.io/repository/miabbott/pet)
+[![quay.io repository](https://img.shields.io/badge/updated-2026--05--31-green)](https://quay.io/repository/miabbott/pet)
 
 This is my [Distrobox](https://distrobox.it/) container
 that I use everyday for hacking on
