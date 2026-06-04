@@ -99,5 +99,16 @@ pip3 install --upgrade heif-convert
 # remove podman
 dnf -y remove podman podman-remote && dnf clean all
 
+# install gws (Google Workspace CLI)
+set -x
+gws_version=$(curl -s "https://api.github.com/repos/googleworkspace/cli/releases/latest" | jq -r '.tag_name')
+curl -sLO "https://github.com/googleworkspace/cli/releases/download/${gws_version}/google-workspace-cli-x86_64-unknown-linux-gnu.tar.gz"
+curl -sLO "https://github.com/googleworkspace/cli/releases/download/${gws_version}/google-workspace-cli-x86_64-unknown-linux-gnu.tar.gz.sha256"
+sha256sum -c google-workspace-cli-x86_64-unknown-linux-gnu.tar.gz.sha256
+tar -xzf google-workspace-cli-x86_64-unknown-linux-gnu.tar.gz
+cp gws /usr/local/bin/gws
+rm -f google-workspace-cli-x86_64-unknown-linux-gnu.tar.gz google-workspace-cli-x86_64-unknown-linux-gnu.tar.gz.sha256 gws
+set +x
+
 # opencode
 curl -fsSL https://opencode.ai/install | bash
