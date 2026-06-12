@@ -151,3 +151,6 @@ ostree
 
 # golang
 golang
+
+# chezmoi
+chezmoi
