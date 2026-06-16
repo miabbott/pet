@@ -154,3 +154,6 @@ golang
 
 # chezmoi
 chezmoi
+
+# copy/paste opencode
+wl-clipboard
