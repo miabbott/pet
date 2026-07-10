@@ -157,3 +157,6 @@ chezmoi
 
 # copy/paste opencode
 wl-clipboard
+
+# pytest
+pytest
