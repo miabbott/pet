@@ -160,3 +160,6 @@ wl-clipboard
 
 # pytest
 pytest
+
+# sqlite (for reading OpenCode session db)
+sqlite
